@@ -7,7 +7,7 @@
 ## 本仓库配置
 
 - GitHub：<https://github.com/0xouzm/blog>，默认分支 `main`。
-- 作者：`0xouzm`；项目部署路径：`/blog`。
+- 作者：`0xouzm`；站点地址：<https://blog.ouzm.top/>，部署在域名根路径。
 - Pages 使用 GitHub Actions 构建，推送到 `main` 后自动发布。
 - Giscus 使用本仓库的 `Announcements` 分类，仓库和分类 ID 已配置；需在 GitHub 给 Giscus App 授权 `blog` 仓库。
 - 新文章默认继承站点作者；未提供公开邮箱，因此不显示邮箱社交链接。
@@ -24,7 +24,7 @@ git push
 
 ```bash
 pnpm install     # 安装依赖（首次，需要 Node 22.12+ 与 pnpm）
-pnpm dev         # 本地预览 → http://localhost:4321/blog/
+pnpm dev         # 本地预览 → http://localhost:4321/
 pnpm build       # 类型检查 + 构建 + 生成搜索索引 → dist/
 pnpm preview     # 预览构建产物
 ```

@@ -7,7 +7,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     /** 部署后的真实地址；本地开发随便填，上线前记得改 */
-    url: "https://0xouzm.github.io/blog/",
+    url: "https://blog.ouzm.top/",
     title: "晨间笔记",
     description: "把想法写下来，慢慢就长成了自己。",
     author: "0xouzm",

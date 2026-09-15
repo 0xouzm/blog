@@ -80,5 +80,5 @@ description: ""
 await writeFile(join(postsDir, fileName), template, "utf8");
 
 console.log(`\n✅ 已创建：src/content/posts/${fileName}`);
-console.log(`   本地预览：http://localhost:4321/blog/posts/${fileName.replace(/\.md$/, "")}/`);
+console.log(`   本地预览：http://localhost:4321/posts/${fileName.replace(/\.md$/, "")}/`);
 console.log("   写完后把 draft 改成 false，再 git push 即可发布。\n");
