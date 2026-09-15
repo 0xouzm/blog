@@ -1,0 +1,142 @@
+---
+/**
+ * 评论区（Giscus）：基于 GitHub Discussions，免费、无广告、无追踪。
+ * 配置在 astro-paper.config.ts 的 comments 字段；未配置时显示图文步骤，不会报错。
+ * 评论配色会跟随站点深浅色主题自动同步。
+ */
+import config from "@/config";
+import { useTranslations } from "@/i18n";
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+const { provider, giscus } = config.comments;
+const enabled =
+  provider === "giscus" &&
+  Boolean(giscus.repo && giscus.repoId && giscus.categoryId);
+---
+
+{
+  provider !== false && (
+    <section id="comments" class="mt-8">
+      <hr class="my-8 border-dashed" />
+      <h2 id="comments-heading" class="text-lg font-semibold">
+        {t.post.comments}
+      </h2>
+
+      {enabled ? (
+        <div
+          id="giscus-host"
+          class="mt-6"
+          data-repo={giscus.repo}
+          data-repo-id={giscus.repoId}
+          data-category={giscus.category}
+          data-category-id={giscus.categoryId}
+          data-mapping={giscus.mapping}
+          data-reactions-enabled={giscus.reactionsEnabled}
+          data-input-position={giscus.inputPosition}
+          data-lang={giscus.lang}
+        />
+      ) : (
+        <div class="border-border bg-muted mt-6 rounded-lg border p-5 text-sm leading-relaxed">
+          <p class="mb-2 font-medium">评论区已就位，还差三个值 ✨</p>
+          <ol class="text-muted-foreground ms-5 list-decimal space-y-1.5">
+            <li>
+              在 GitHub 建一个<strong class="text-foreground">公开仓库</strong>，进入 Settings
+              → General → Features，勾选
+              <strong class="text-foreground">Discussions</strong>。
+            </li>
+            <li>
+              安装 <a class="text-accent underline" href="https://github.com/apps/giscus"
+                >giscus App</a
+              > 并授权该仓库。
+            </li>
+            <li>
+              打开 <a class="text-accent underline" href="https://giscus.app/zh-CN"
+                >giscus.app/zh-CN</a
+              >，填入仓库名，页面会生成 <code
+                class="bg-background rounded px-1 py-0.5 text-xs"
+                >data-repo-id</code
+              >
+              与 <code class="bg-background rounded px-1 py-0.5 text-xs">data-category-id</code>。
+            </li>
+            <li>
+              把这几个值填进 <code class="bg-background rounded px-1 py-0.5 text-xs"
+                >astro-paper.config.ts</code
+              > 的 <code class="bg-background rounded px-1 py-0.5 text-xs">comments.giscus</code>
+              字段，保存即可生效。
+            </li>
+          </ol>
+          <p class="text-muted-foreground mt-3 text-xs">
+            提示：无需改动任何组件代码；不想用评论时，把 provider 改成 false 即可关闭。
+          </p>
+        </div>
+      )}
+    </section>
+  )
+}
+
+<script>
+  // 模块作用域变量：模块脚本每次整页加载只执行一次，足够做幂等保护
+  let themeObserverBound = false;
+
+  function currentTheme(): string {
+    return document.documentElement.getAttribute("data-theme") === "dark"
+      ? "dark"
+      : "light";
+  }
+
+  /** 主题切换后通知 giscus 的 iframe 换配色 */
+  function syncGiscusTheme(theme: string): void {
+    document
+      .querySelector<HTMLIFrameElement>("iframe.giscus-frame")
+      ?.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+      );
+  }
+
+  /** 用 JS 动态加载，才能把当前主题作为初始值传进去，避免评论区先闪一下白底 */
+  function mountGiscus(): void {
+    const host = document.getElementById("giscus-host");
+    if (!host || host.dataset.mounted === "true") return;
+    host.dataset.mounted = "true";
+
+    const attributes: Record<string, string> = {
+      "data-repo": host.dataset.repo ?? "",
+      "data-repo-id": host.dataset.repoId ?? "",
+      "data-category": host.dataset.category ?? "",
+      "data-category-id": host.dataset.categoryId ?? "",
+      "data-mapping": host.dataset.mapping ?? "pathname",
+      "data-strict": "0",
+      "data-reactions-enabled": host.dataset.reactionsEnabled ?? "1",
+      "data-emit-metadata": "0",
+      "data-input-position": host.dataset.inputPosition ?? "bottom",
+      "data-theme": currentTheme(),
+      "data-lang": host.dataset.lang ?? "en",
+      "data-loading": "lazy",
+    };
+
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    for (const [key, value] of Object.entries(attributes)) {
+      script.setAttribute(key, value);
+    }
+
+    host.appendChild(script);
+  }
+
+  document.addEventListener("astro:page-load", mountGiscus);
+  if (document.readyState !== "loading") mountGiscus();
+
+  // 用 MutationObserver 而非监听按钮：按钮切换与系统偏好变化都能覆盖
+  if (!themeObserverBound) {
+    themeObserverBound = true;
+    new MutationObserver(() => syncGiscusTheme(currentTheme())).observe(
+      document.documentElement,
+      { attributes: true, attributeFilter: ["data-theme"] }
+    );
+  }
+</script>
