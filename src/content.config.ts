@@ -2,7 +2,6 @@ import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 import config from "@/config";
-import { BLOG_TAGS } from "./tags";
 
 export const BLOG_PATH = "src/content/posts";
 
@@ -16,7 +15,7 @@ const posts = defineCollection({
       title: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
-      tags: z.array(z.enum(BLOG_TAGS)).min(1).default(["生活随笔"]),
+      tags: z.array(z.string()).default([]),
       ogImage: image().or(z.string()).optional(),
       description: z.string(),
       canonicalURL: z.string().optional(),

@@ -12,7 +12,7 @@
 - Giscus 使用本仓库的 `Announcements` 分类，仓库和分类 ID 已配置，App 授权已验证。
 - Cloudflare DNS：`blog` 的 CNAME 指向 `0xouzm.github.io`，DNS only；GitHub Pages 绑定 `blog.ouzm.top`。
 - 新文章默认继承站点作者；未提供公开邮箱，因此不显示邮箱社交链接。
-- 固定标签：`技术`、`生活随笔`、`读书思考`。在文章 frontmatter 的 `tags` 中选择，新文章默认使用 `生活随笔`。
+- 仅使用标签，不设分类。文章 frontmatter 的 `tags` 可填写多个自由标签，也可以留空；标签页只显示文章实际使用的标签。
 
 ```bash
 git add .
