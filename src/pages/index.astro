@@ -56,14 +56,20 @@ const homePath = getRelativeLocaleUrl(locale, "");
         {config.site.description}
       </p>
       <p class="mt-2">
-        记录技术、阅读与生活。你可以从{" "}
+        你可以从{" "}
         <LinkButton
           class="hover:text-accent underline decoration-dashed underline-offset-4"
           href={getRelativeLocaleUrl(locale, "posts")}
         >
           文章列表
         </LinkButton>{" "}
-        开始，慢慢读。
+        开始阅读，也欢迎在{" "}
+        <LinkButton
+          class="hover:text-accent underline decoration-dashed underline-offset-4"
+          href={config.site.profile}
+        >
+          小红书
+        </LinkButton>交流。
       </p>
       {
         socials.length > 0 && (

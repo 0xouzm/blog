@@ -1,6 +1,6 @@
 ---
 title: 你好，世界：这个站点开始运转了
-author: 0xouzm
+author: Jason Nomad
 pubDatetime: 2026-08-20T09:30:00+08:00
 featured: true
 draft: false
@@ -49,7 +49,7 @@ pnpm dev
 ```yaml
 ---
 title: 文章标题
-author: 0xouzm
+author: Jason Nomad
 pubDatetime: 2026-08-20T09:30:00+08:00
 featured: false # 设为 true 会置顶到首页
 draft: false # 设为 true 则只在本地可见

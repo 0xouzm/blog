@@ -93,7 +93,11 @@ export const GET: APIRoute = async () => {
                             type: "p",
                             props: {
                               style: { fontSize: 28 },
-                              children: config.site.description,
+                              // 构建用中文字体不含 emoji，分享图使用纯文字简介。
+                              children: config.site.description.replace(
+                                /\p{Extended_Pictographic}\uFE0F?/gu,
+                                ""
+                              ),
                             },
                           },
                         ],

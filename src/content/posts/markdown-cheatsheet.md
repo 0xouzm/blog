@@ -1,6 +1,6 @@
 ---
 title: Markdown 排版速查：这篇文章用来检查样式
-author: 0xouzm
+author: Jason Nomad
 pubDatetime: 2026-08-28T14:00:00+08:00
 featured: false
 draft: false

@@ -1,4 +1,4 @@
-# 晨间笔记 · 个人博客
+# Jason Nomad · 个人博客
 
 基于 [AstroPaper](https://github.com/satnaing/astro-paper) v6 主题搭建的个人站点：
 **Astro 7 + Tailwind CSS 4 + Giscus 评论 + Pagefind 搜索**。
@@ -7,7 +7,7 @@
 ## 本仓库配置
 
 - GitHub：<https://github.com/0xouzm/blog>，默认分支 `main`。
-- 作者：`0xouzm`；站点地址：<https://blog.ouzm.top/>，部署在域名根路径。
+- 作者：`Jason Nomad`；站点地址：<https://blog.ouzm.top/>，部署在域名根路径。
 - Pages 使用 GitHub Actions 构建，推送到 `main` 后自动发布。
 - Giscus 使用本仓库的 `Announcements` 分类，仓库和分类 ID 已配置，App 授权已验证。
 - Cloudflare DNS：`blog` 的 CNAME 指向 `0xouzm.github.io`，DNS only；GitHub Pages 绑定 `blog.ouzm.top`。

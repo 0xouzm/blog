@@ -1,6 +1,6 @@
 ---
 title: 这是一篇草稿（线上不会出现）
-author: 0xouzm
+author: Jason Nomad
 pubDatetime: 2026-09-10T16:00:00+08:00
 featured: false
 draft: true

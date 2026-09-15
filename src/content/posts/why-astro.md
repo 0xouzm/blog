@@ -1,6 +1,6 @@
 ---
 title: 为什么个人博客用 Astro，而不是 Next.js
-author: 0xouzm
+author: Jason Nomad
 pubDatetime: 2026-09-05T10:15:00+08:00
 modDatetime: 2026-09-08T20:40:00+08:00
 featured: false
