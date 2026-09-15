@@ -67,7 +67,7 @@ pubDatetime: ${timestamp}
 featured: false
 draft: true
 tags:
-  - 随笔
+  - 生活随笔
 description: ""
 ---
 

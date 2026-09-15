@@ -47,6 +47,7 @@ const t = useTranslations(locale);
     pageDesc={`${t.pages.tagDesc} "${tagName}".`}
   >
     <ul>
+      {page.data.length === 0 && <li class="text-muted-foreground">这个分类还没有文章。</li>}
       {page.data.map(data => <Card {...data} />)}
     </ul>
   </Main>
