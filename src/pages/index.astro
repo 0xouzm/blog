@@ -119,6 +119,14 @@ const homePath = getRelativeLocaleUrl(locale, "");
       )
     }
 
+    {
+      sortedPosts.length === 0 && (
+        <p class="text-muted-foreground py-12 text-center">
+          还没有发布文章，敬请期待。
+        </p>
+      )
+    }
+
     <div class="my-8 text-center">
       <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
         {t.home.allPosts}

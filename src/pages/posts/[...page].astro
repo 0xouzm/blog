@@ -29,6 +29,11 @@ const t = useTranslations(locale);
   <Breadcrumb />
 
   <Main pageTitle={t.pages.postsTitle} pageDesc={t.pages.postsDesc}>
+    {
+      page.data.length === 0 && (
+        <p class="text-muted-foreground">还没有发布文章，敬请期待。</p>
+      )
+    }
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>

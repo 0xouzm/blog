@@ -1,5 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { getCollection } from "astro:content";
+import { getSortedPosts } from "@/utils/getSortedPosts";
 import "@pagefind/default-ui/css/ui.css";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
@@ -25,6 +27,7 @@ const backUrl = config.features.showBackButton
 const pagefindBundlePath = getAssetPath("pagefind/");
 
 const t = useTranslations(locale);
+const hasPosts = getSortedPosts(await getCollection("posts")).length > 0;
 ---
 
 <Layout title={`${t.pages.searchTitle} | ${config.site.title}`}>
@@ -33,13 +36,18 @@ const t = useTranslations(locale);
   <Breadcrumb />
 
   <Main pageTitle={t.pages.searchTitle} pageDesc={t.pages.searchDesc}>
-    <div
-      id="pagefind-search"
-      transition:persist
-      data-backurl={backUrl}
-      data-bundle-path={pagefindBundlePath}
-    >
-    </div>
+    {
+      hasPosts ? (
+        <div
+          id="pagefind-search"
+          transition:persist
+          data-backurl={backUrl}
+          data-bundle-path={pagefindBundlePath}
+        ></div>
+      ) : (
+        <p class="text-muted-foreground">还没有可搜索的文章，敬请期待。</p>
+      )
+    }
   </Main>
 
   <Footer />
