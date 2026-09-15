@@ -41,13 +41,27 @@
   --border: #ece9e9;
 }
 
-/* Dark theme values */
+/* Dark theme: charcoal surfaces with neon green accents */
 [data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --background: #090d0b;
+  --foreground: #e4ece7;
+  --accent: #b6ff5c;
+  --accent-foreground: #101708;
+  --muted: #17221b;
+  --muted-foreground: #a2b3a8;
+  --border: #2a3c30;
+}
+
+[data-theme="dark"] #hero h1 {
+  color: var(--accent);
+  text-shadow: 0 0 24px rgb(182 255 92 / 18%);
+}
+
+[data-theme="dark"] a:hover {
+  text-shadow: 0 0 14px rgb(182 255 92 / 24%);
+}
+
+[data-theme="dark"] ::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
