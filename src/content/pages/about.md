@@ -3,7 +3,7 @@ title: "关于"
 description: "关于这个站点，以及写它的人。"
 ---
 
-你好，我是这里的主人。这个站点用 [Astro](https://astro.build/) 和
+你好，我是 0xouzm。这个站点用 [Astro](https://astro.build/) 和
 [AstroPaper](https://github.com/satnaing/astro-paper) 主题搭建，是一份纯静态的站点——
 没有数据库、没有后台，日常维护就是写 Markdown、然后 `git push`。
 
@@ -23,4 +23,4 @@ description: "关于这个站点，以及写它的人。"
 
 ## 怎么联系我
 
-文章底部的评论区是最快的方式，也欢迎直接发邮件。
+欢迎在文章底部的评论区交流，也可以在 [GitHub](https://github.com/0xouzm) 找到我。

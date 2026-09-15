@@ -9,7 +9,8 @@
 - GitHub：<https://github.com/0xouzm/blog>，默认分支 `main`。
 - 作者：`0xouzm`；站点地址：<https://blog.ouzm.top/>，部署在域名根路径。
 - Pages 使用 GitHub Actions 构建，推送到 `main` 后自动发布。
-- Giscus 使用本仓库的 `Announcements` 分类，仓库和分类 ID 已配置；需在 GitHub 给 Giscus App 授权 `blog` 仓库。
+- Giscus 使用本仓库的 `Announcements` 分类，仓库和分类 ID 已配置，App 授权已验证。
+- Cloudflare DNS：`blog` 的 CNAME 指向 `0xouzm.github.io`，DNS only；GitHub Pages 绑定 `blog.ouzm.top`。
 - 新文章默认继承站点作者；未提供公开邮箱，因此不显示邮箱社交链接。
 
 ```bash
