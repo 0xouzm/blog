@@ -5,7 +5,9 @@ featured: false
 draft: false
 tags:
   - 生活随笔
-description: 生活要记录下来，不然日子可能偷偷就溜走了。
+description: 生活就是要记录，不然就溜走了
 ---
 
-生活要记录下来，不然日子可能偷偷就溜走了。
+生活就是要记录
+
+不然就溜走了
