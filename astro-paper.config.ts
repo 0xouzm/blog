@@ -11,8 +11,6 @@ export default defineAstroPaperConfig({
     title: "Jason Nomad",
     description: "分享AI工具技巧🤖 · 记录思考",
     author: "Jason Nomad",
-    /** 作者主页，用于结构化数据；不需要可以删掉这一行 */
-    profile: "https://www.xiaohongshu.com/user/profile/5d1783090000000010006fdc",
     ogImage: "og.png",
     /** 界面语言：决定 <html lang> 与 i18n 文案，改这里要同步改 astro.config.ts */
     lang: "zh-CN",
